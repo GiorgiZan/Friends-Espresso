@@ -1,21 +1,24 @@
 package com.atiurin.sampleapp.pages
 
+import android.view.View
 import androidx.test.espresso.matcher.ViewMatchers.*
-import com.atiurin.ultron.page.Page
-import com.atiurin.ultron.core.espresso.recyclerview.UltronRecyclerViewItem
-import com.atiurin.ultron.core.espresso.recyclerview.withRecyclerView
 import com.atiurin.sampleapp.R
 import com.atiurin.sampleapp.data.entities.Contact
 import com.atiurin.sampleapp.framework.step
+import com.atiurin.ultron.core.espresso.recyclerview.UltronRecyclerViewItem
+import com.atiurin.ultron.core.espresso.recyclerview.withRecyclerView
 import com.atiurin.ultron.custom.espresso.matcher.withSuitableRoot
 import com.atiurin.ultron.extensions.hasText
 import com.atiurin.ultron.extensions.isDisplayed
+import com.atiurin.ultron.page.Page
+import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.containsString
 import org.junit.Assert
 
 object FriendsListPage : Page<FriendsListPage>() {
     val recycler = withRecyclerView(R.id.recycler_friends)
+    val recyclerFriends: Matcher<View> by lazy { withId(R.id.recycler_friends) }
 
     fun assertPageDisplayed() = apply {
         step("Assert friends list page displayed") {
@@ -66,5 +69,7 @@ object FriendsListPage : Page<FriendsListPage>() {
         Assert.assertEquals(size, recycler.getSize())
     }
 
-    fun getItemMatcher(contact: Contact) = hasDescendant(allOf(withId(R.id.tv_name), withText(containsString(contact.name))))
+    fun getItemMatcher(contact: Contact) = hasDescendant(
+        allOf(withId(R.id.tv_name), withText(containsString(contact.name)))
+    )
 }
