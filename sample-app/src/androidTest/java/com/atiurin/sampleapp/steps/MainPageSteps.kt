@@ -12,6 +12,11 @@ object MainPageSteps {
         return this
     }
 
+    fun scrollToFriend(friend: String): MainPageSteps {
+        FriendsListPage.getListItem(friend).scrollToItem()
+        return this
+    }
+
     fun openChatByName(name: String): MainPageSteps {
         FriendsListPage.openChat(name)
         return this

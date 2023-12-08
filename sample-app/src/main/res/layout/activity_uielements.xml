@@ -39,6 +39,7 @@
                 android:id="@+id/radio_invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="false"
                 android:text="@string/radio_invisible" />
 
             <RadioButton
@@ -48,12 +49,12 @@
                 android:text="@string/radio_gone" />
         </RadioGroup>
 
-        <CheckBox
-            android:id="@+id/checkbox_enable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/checkbox_enable" />
+    <CheckBox
+        android:id="@+id/checkbox_enable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/checkbox_enable" />
 
         <CheckBox
             android:id="@+id/checkbox_clickable"
