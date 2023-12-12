@@ -12,4 +12,6 @@ object CustomClicksPage {
     val topRightRadioButton: Matcher<View> by lazy { ViewMatchers.withId(R.id.rB_top_right) }
     val bottomLeftRadioButton: Matcher<View> by lazy { ViewMatchers.withId(R.id.rB_bottom_left) }
     val bottomRightRadioButton: Matcher<View> by lazy { ViewMatchers.withId(R.id.rB_bottom_right) }
+
+
 }
